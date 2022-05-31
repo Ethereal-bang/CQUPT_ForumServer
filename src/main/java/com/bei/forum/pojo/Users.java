@@ -1,5 +1,9 @@
 package com.bei.forum.pojo;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class Users {
     private Integer id;
 

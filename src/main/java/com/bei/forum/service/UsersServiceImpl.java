@@ -27,4 +27,19 @@ public class UsersServiceImpl implements UsersService {
         return usersMapper.add(users);
     }
 
+    @Override
+    public boolean update(Users users) {
+        return usersMapper.update(users);
+    }
+
+    @Override
+    public int selectId(String email) {
+        return usersMapper.selectId(email);
+    }
+
+    @Override
+    public Users selectById(int id) {
+        return usersMapper.select(id)[0];
+    }
+
 }

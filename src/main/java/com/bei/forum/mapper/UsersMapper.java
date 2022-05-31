@@ -12,4 +12,10 @@ public interface UsersMapper {
 
     boolean add(Users users);
 
+    boolean update(Users users);
+
+    int selectId(String email);
+
+    Users[] select(int id);
+
 }

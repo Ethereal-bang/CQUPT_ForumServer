@@ -2,12 +2,10 @@ package com.bei.forum.controller;
 
 import com.bei.forum.common.Email;
 import com.bei.forum.common.Res;
+import com.bei.forum.pojo.Users;
 import com.bei.forum.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.Mapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.Objects;
@@ -50,5 +48,22 @@ public class UsersController {
             }
         }
         return Res.ok().setMsg("登录成功");
+    }
+
+    @RequestMapping("/{email}/set")
+    public Res setInfo(@PathVariable String email,
+                       @RequestParam(value = "name") String name,
+                       @RequestParam(value = "img") int avatarOrder) {
+        Users user = new Users();
+        user.setEmail(email);
+        user.setName(name);
+        user.setAvatarOrder(avatarOrder);
+        if (usersService.update(user)) {
+            return Res.ok()
+                    .setMsg("修改成功")
+                    .data("user", usersService.selectById(usersService.selectId(email)));
+        } else {
+            return Res.err().setMsg("修改出错");
+        }
     }
 }

@@ -4,6 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.bei.forum.mapper.UsersMapper">
+    <resultMap id="BaseResultMap" type="Users">
+        <id column="_id" jdbcType="INTEGER" property="id" />
+        <result column="email" jdbcType="VARCHAR" property="email" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="avatar_order" jdbcType="INTEGER" property="avatarOrder" />
+    </resultMap>
 
     <select id="getCount" parameterType="String" resultType="int">
         select COUNT(*) from users where email = #{email};
@@ -12,4 +18,21 @@
     <insert id="add" parameterType="Users">
         insert into users (email) values (#{email});
     </insert>
+
+    <update id="update" parameterType="Users">
+        update users
+            set name = #{name},
+                avatar_order = #{avatarOrder}
+            where email = #{email};
+    </update>
+
+    <select id="selectId" parameterType="String" resultType="int">
+        select _id from users where email = #{email};
+    </select>
+
+    <select id="select" parameterType="int" resultMap="BaseResultMap">
+        select _id, email, name, avatar_order
+            from users
+            where _id = #{id}
+    </select>
 </mapper>
