@@ -2,10 +2,10 @@ package com.bei.forum.pojo;
 
 import java.util.Date;
 
-public class Posts {
+public class Posts extends Articles {
     private Integer id;
 
-    private String title;
+    private String title, content;
 
     private Date createTime;
 

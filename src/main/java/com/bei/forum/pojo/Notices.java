@@ -1,11 +1,12 @@
 package com.bei.forum.pojo;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Notices {
+public class Notices extends Articles {
     private Integer id;
 
-    private String title;
+    private String title, content;
 
     private Date createTime;
 
@@ -14,6 +15,14 @@ public class Notices {
     private Integer like;
 
     private Integer collection;
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 
     public Integer getId() {
         return id;
@@ -31,8 +40,9 @@ public class Notices {
         this.title = title;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public String getCreateTime() {
+        SimpleDateFormat fd = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        return fd.format(createTime);
     }
 
     public void setCreateTime(Date createTime) {

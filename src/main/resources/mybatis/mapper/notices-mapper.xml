@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bei.forum.mapper.NoticesMapper">
+    <resultMap id="BaseResultMap" type="Notices">
+        <id column="_id" jdbcType="INTEGER" property="id" />
+        <result column="title" jdbcType="VARCHAR" property="title" />
+        <result column="content" jdbcType="CHAR" property="content" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="visit" jdbcType="INTEGER" property="visit" />
+        <result column="like" jdbcType="INTEGER" property="like" />
+        <result column="collection" jdbcType="INTEGER" property="collection" />
+    </resultMap>
+
+    <select id="get" parameterType="int" resultMap="BaseResultMap">
+        select * from notices where _id = #{id};
+    </select>
+</mapper>
