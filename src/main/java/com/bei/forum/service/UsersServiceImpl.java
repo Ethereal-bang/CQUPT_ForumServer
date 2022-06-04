@@ -1,5 +1,6 @@
 package com.bei.forum.service;
 
+import com.bei.forum.mapper.AvatarMapper;
 import com.bei.forum.mapper.UsersMapper;
 import com.bei.forum.pojo.Users;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,10 +10,16 @@ import org.springframework.stereotype.Service;
 public class UsersServiceImpl implements UsersService {
 
     UsersMapper usersMapper;
+    AvatarMapper avatarMapper;
 
     @Autowired
     public void setUsersMapper(UsersMapper usersMapper) {
         this.usersMapper = usersMapper;
+    }
+
+    @Autowired
+    public void setAvatarMapper(AvatarMapper avatarMapper) {
+        this.avatarMapper = avatarMapper;
     }
 
     @Override
@@ -24,7 +31,6 @@ public class UsersServiceImpl implements UsersService {
     public boolean addByEmail(String email) {
         Users users = new Users();
         users.setEmail(email);
-        users.setName(email);
         return usersMapper.add(users);
     }
 
@@ -40,7 +46,9 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public Users selectById(int id) {
-        return usersMapper.select(id)[0];
+        Users user = usersMapper.select(id)[0];
+        user.setAvatarLink(avatarMapper.get(user.getAvatarOrder()));
+        return user;
     }
 
 }

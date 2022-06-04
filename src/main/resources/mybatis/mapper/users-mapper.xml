@@ -16,7 +16,7 @@
     </select>
 
     <insert id="add" parameterType="Users">
-        insert into users (email) values (#{email});
+        insert into users (email, name) values (#{email}, #{email});
     </insert>
 
     <update id="update" parameterType="Users">

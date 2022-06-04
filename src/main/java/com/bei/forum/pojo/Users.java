@@ -1,6 +1,5 @@
 package com.bei.forum.pojo;
 
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
@@ -9,7 +8,7 @@ public class Users {
 
     private String email;
 
-    private String name;
+    private String name, avatarLink;
 
     private Integer avatarOrder;
 
@@ -43,5 +42,13 @@ public class Users {
 
     public void setAvatarOrder(Integer avatarOrder) {
         this.avatarOrder = avatarOrder;
+    }
+
+    public void setAvatarLink(String avatarLink) {
+        this.avatarLink = avatarLink;
+    }
+
+    public String getAvatarLink() {
+        return avatarLink;
     }
 }
