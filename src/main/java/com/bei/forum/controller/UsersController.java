@@ -50,6 +50,11 @@ public class UsersController {
         return Res.ok().setMsg("登录成功");
     }
 
+    @RequestMapping("/{email}/info")
+    public Res info(@PathVariable String email) {
+        return Res.ok().data("user", usersService.selectById(usersService.selectId(email)));
+    }
+
     @RequestMapping("/{email}/set")
     public Res setInfo(@PathVariable String email,
                        @RequestParam(value = "name") String name,

@@ -24,6 +24,7 @@ public class UsersServiceImpl implements UsersService {
     public boolean addByEmail(String email) {
         Users users = new Users();
         users.setEmail(email);
+        users.setName(email);
         return usersMapper.add(users);
     }
 
