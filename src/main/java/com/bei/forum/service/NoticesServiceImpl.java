@@ -19,4 +19,9 @@ public class NoticesServiceImpl implements NoticesService {
     public Notices get(int id) {
         return noticesMapper.get(id)[0];
     }
+
+    @Override
+    public Notices[] getAll() {
+        return noticesMapper.getAll();
+    }
 }

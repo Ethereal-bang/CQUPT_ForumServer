@@ -8,4 +8,6 @@ public interface NoticesMapper {
 
     Notices[] get(int id);
 
+    Notices[] getAll();
+
 }

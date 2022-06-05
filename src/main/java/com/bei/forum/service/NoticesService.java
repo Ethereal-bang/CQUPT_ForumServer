@@ -6,4 +6,6 @@ public interface NoticesService {
 
     Notices get(int id);
 
+    Notices[] getAll();
+
 }
