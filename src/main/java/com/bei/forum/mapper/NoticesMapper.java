@@ -10,4 +10,6 @@ public interface NoticesMapper {
 
     Notices[] getAll();
 
+    Notices[] getByArea(String area);
+
 }

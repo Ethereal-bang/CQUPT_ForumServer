@@ -19,6 +19,8 @@ public class NoticesController {
 
     @RequestMapping("/showAll")
     public Res showAll() {
-        return Res.ok().data("list", noticesService.getAll());
+        return Res.ok()
+                .data("notice", noticesService.getByArea("notice"))
+                .data("game", noticesService.getByArea("game"));
     }
 }

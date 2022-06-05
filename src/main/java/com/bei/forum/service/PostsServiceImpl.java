@@ -24,4 +24,9 @@ public class PostsServiceImpl implements PostsService {
     public Posts[] getAll() {
         return postsMapper.getAll();
     }
+
+    @Override
+    public Posts[] getByArea(String area) {
+        return postsMapper.getByArea(area);
+    }
 }

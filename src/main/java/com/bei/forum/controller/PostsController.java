@@ -19,7 +19,11 @@ public class PostsController {
 
     @RequestMapping("/showAll")
     public Res showAll() {
-        return Res.ok().data("list", postsService.getAll());
+        return Res.ok()
+                .data("share", postsService.getByArea("share"))
+                .data("tech", postsService.getByArea("tech"))
+                .data("study", postsService.getByArea("study"))
+                .data("work", postsService.getByArea("work"));
     }
 }
 

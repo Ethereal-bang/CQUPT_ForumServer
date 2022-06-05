@@ -7,4 +7,6 @@ public interface PostsService {
     Posts get(int id);
 
     Posts[] getAll();
+
+    Posts[] getByArea(String area);
 }

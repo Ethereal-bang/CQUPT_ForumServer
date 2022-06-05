@@ -8,4 +8,5 @@ public interface NoticesService {
 
     Notices[] getAll();
 
+    Notices[] getByArea(String area);
 }

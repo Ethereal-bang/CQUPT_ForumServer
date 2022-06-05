@@ -10,4 +10,5 @@ public interface PostsMapper {
 
     Posts[] getAll();
 
+    Posts[] getByArea(String area);
 }

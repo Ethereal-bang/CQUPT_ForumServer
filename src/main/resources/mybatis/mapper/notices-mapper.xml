@@ -22,4 +22,8 @@
     <select id="getAll" resultMap="BaseResultMap">
         select * from notices;
     </select>
+
+    <select id="getByArea" parameterType="String" resultMap="BaseResultMap">
+        select * from notices where area = #{area};
+    </select>
 </mapper>

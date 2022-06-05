@@ -24,4 +24,9 @@
     <select id="getAll" resultMap="BaseResultMap">
         select * from posts;
     </select>
+
+    <select id="getByArea" parameterType="String" resultMap="BaseResultMap">
+        select * from posts where area = #{area};
+    </select>
+
 </mapper>

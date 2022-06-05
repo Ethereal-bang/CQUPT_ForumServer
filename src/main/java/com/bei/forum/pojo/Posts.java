@@ -8,7 +8,7 @@ public class Posts extends Articles {
 
     private String title;
     private String content;
-    private String area;
+    private String area, state;
     private final String type = "posts";
 
     private Date createTime;

@@ -6,7 +6,7 @@ import java.util.Date;
 public class Notices extends Articles {
     private Integer id;
 
-    private String title, content, area;
+    private String title, content, area, state;
 
     private Date createTime;
 

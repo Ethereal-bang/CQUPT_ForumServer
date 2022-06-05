@@ -24,4 +24,9 @@ public class NoticesServiceImpl implements NoticesService {
     public Notices[] getAll() {
         return noticesMapper.getAll();
     }
+
+    @Override
+    public Notices[] getByArea(String area) {
+        return noticesMapper.getByArea(area);
+    }
 }
