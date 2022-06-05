@@ -5,7 +5,10 @@ import java.util.Date;
 public class Posts extends Articles {
     private Integer id;
 
-    private String title, content;
+    private String title;
+    private String content;
+    private String area;
+    private final String type = "posts";
 
     private Date createTime;
 
@@ -81,5 +84,18 @@ public class Posts extends Articles {
 
     public void setComment(Integer comment) {
         this.comment = comment;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    @Override
+    public String getType() {
+        return "posts";
     }
 }

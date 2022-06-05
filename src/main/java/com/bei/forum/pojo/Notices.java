@@ -6,7 +6,7 @@ import java.util.Date;
 public class Notices extends Articles {
     private Integer id;
 
-    private String title, content;
+    private String title, content, area;
 
     private Date createTime;
 
@@ -71,5 +71,18 @@ public class Notices extends Articles {
 
     public void setCollection(Integer collection) {
         this.collection = collection;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    @Override
+    public String getType() {
+        return "notices";
     }
 }

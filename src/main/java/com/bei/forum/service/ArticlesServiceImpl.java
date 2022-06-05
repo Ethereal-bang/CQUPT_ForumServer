@@ -2,8 +2,6 @@ package com.bei.forum.service;
 
 import com.bei.forum.mapper.ArticlesMapper;
 import com.bei.forum.pojo.Articles;
-import com.bei.forum.pojo.Notices;
-import com.bei.forum.pojo.Posts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

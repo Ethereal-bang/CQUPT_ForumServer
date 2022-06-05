@@ -7,6 +7,7 @@
     <resultMap id="BaseResultMap" type="Notices">
         <id column="_id" jdbcType="INTEGER" property="id" />
         <result column="title" jdbcType="VARCHAR" property="title" />
+        <result column="area" jdbcType="VARCHAR" property="area" />
         <result column="content" jdbcType="CHAR" property="content" />
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
         <result column="visit" jdbcType="INTEGER" property="visit" />
@@ -19,6 +20,6 @@
     </select>
 
     <select id="getAll" resultMap="BaseResultMap">
-        select * from posts;
+        select * from notices;
     </select>
 </mapper>
