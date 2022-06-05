@@ -1,5 +1,6 @@
 package com.bei.forum.pojo;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Posts extends Articles {
@@ -38,16 +39,21 @@ public class Posts extends Articles {
         this.title = title;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public String getCreateTime() {
+        SimpleDateFormat fd = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        return fd.format(createTime);
     }
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
+    public String getUpdateTime() {
+        if (updateTime != null) {
+            SimpleDateFormat fd = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            return fd.format(updateTime);
+        }
+        return "";
     }
 
     public void setUpdateTime(Date updateTime) {

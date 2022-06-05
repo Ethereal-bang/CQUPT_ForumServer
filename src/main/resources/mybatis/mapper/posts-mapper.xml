@@ -20,4 +20,8 @@
     <select id="get" parameterType="int" resultMap="BaseResultMap">
         select * from posts where _id = #{id};
     </select>
+
+    <select id="getAll" resultMap="BaseResultMap">
+        select * from posts;
+    </select>
 </mapper>

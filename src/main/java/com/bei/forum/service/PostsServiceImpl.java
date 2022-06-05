@@ -19,4 +19,9 @@ public class PostsServiceImpl implements PostsService {
     public Posts get(int id) {
         return postsMapper.get(id)[0];
     }
+
+    @Override
+    public Posts[] getAll() {
+        return postsMapper.getAll();
+    }
 }

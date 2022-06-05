@@ -8,4 +8,6 @@ public interface PostsMapper {
 
     Posts[] get(int id);
 
+    Posts[] getAll();
+
 }
