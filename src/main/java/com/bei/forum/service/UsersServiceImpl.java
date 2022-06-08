@@ -45,6 +45,11 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
+    public int selectIdByName(String name) {
+        return usersMapper.selectIdByName(name);
+    }
+
+    @Override
     public Users selectById(int id) {
         Users user = usersMapper.select(id)[0];
         user.setAvatarLink(avatarMapper.get(user.getAvatarOrder()));

@@ -55,6 +55,11 @@ public class UsersController {
         return Res.ok().data("user", usersService.selectById(usersService.selectId(email)));
     }
 
+    @RequestMapping("/info")
+    public Res infoByName(@RequestParam String name) {
+        return Res.ok().data("user", usersService.selectById(usersService.selectIdByName(name)));
+    }
+
     @RequestMapping("/{email}/set")
     public Res setInfo(@PathVariable String email,
                        @RequestParam(value = "name") String name,

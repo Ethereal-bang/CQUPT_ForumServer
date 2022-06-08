@@ -12,6 +12,8 @@ public interface UsersService {
 
     int selectId(String email);
 
+    int selectIdByName(String name);
+
     Users selectById(int id);
 
 

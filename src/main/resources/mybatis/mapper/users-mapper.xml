@@ -30,6 +30,10 @@
         select _id from users where email = #{email};
     </select>
 
+    <select id="selectIdByName" parameterType="String" resultType="int">
+        select _id from users where name = #{name}
+    </select>
+
     <select id="select" parameterType="int" resultMap="BaseResultMap">
         select _id, email, name, avatar_order
             from users
