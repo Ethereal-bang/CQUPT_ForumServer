@@ -1,12 +1,19 @@
 package com.bei.forum.pojo;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@Data
+@Getter
+@Setter
 public class Posts extends Articles {
     private Integer id;
 
-    private String title;
+    private String title, author;
     private String content;
     private String area, state;
     private final String type = "posts";
@@ -22,22 +29,6 @@ public class Posts extends Articles {
     private Integer collection;
 
     private Integer comment;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public String getCreateTime() {
         SimpleDateFormat fd = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
@@ -58,46 +49,6 @@ public class Posts extends Articles {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    public Integer getLike() {
-        return like;
-    }
-
-    public void setLike(Integer like) {
-        this.like = like;
-    }
-
-    public Integer getVisit() {
-        return visit;
-    }
-
-    public void setVisit(Integer visit) {
-        this.visit = visit;
-    }
-
-    public Integer getCollection() {
-        return collection;
-    }
-
-    public void setCollection(Integer collection) {
-        this.collection = collection;
-    }
-
-    public Integer getComment() {
-        return comment;
-    }
-
-    public void setComment(Integer comment) {
-        this.comment = comment;
-    }
-
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
-        this.area = area;
     }
 
     @Override

@@ -7,6 +7,7 @@
     <resultMap id="BaseResultMap" type="Posts">
         <id column="_id" jdbcType="INTEGER" property="id" />
         <result column="title" jdbcType="VARCHAR" property="title" />
+        <result column="author" jdbcType="VARCHAR" property="author" />
         <result column="content" jdbcType="CHAR" property="content" />
         <result column="area" jdbcType="VARCHAR" property="area" />
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
