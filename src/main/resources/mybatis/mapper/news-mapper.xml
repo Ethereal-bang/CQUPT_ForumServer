@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bei.forum.mapper.NewsMapper">
+    <resultMap id="BaseResMap" type="News">
+        <id column="_id" jdbcType="INTEGER" property="id" />
+        <result column="sender" jdbcType="INTEGER" property="sender" />
+        <result column="receiver" jdbcType="INTEGER" property="receiver" />
+        <result column="carrier_id" jdbcType="INTEGER" property="carrierId" />
+        <result column="type" jdbcType="VARCHAR" property="type" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="content" jdbcType="VARCHAR" property="content" />
+        <result column="state" jdbcType="BIT" property="state" />
+    </resultMap>
+
+    <select id="showComment" parameterType="int" resultType="java.util.Map">
+        select news._id, sender, receiver, carrier_id, type, create_time, content, state,
+            u._id, name, avatar_order,
+           avatar.link
+        from news LEFT JOIN users u on news.sender = u._id
+            LEFT JOIN avatar on avatar_order = avatar.`order`
+        where carrier_id = #{id};
+    </select>
+
+    <insert id="send" parameterType="News">
+        insert
+        into news (sender, receiver, carrier_id, type, create_time, content)
+        VALUE (#{sender}, #{receiver}, #{carrierId}, #{type}, #{create_time}, #{content});
+    </insert>
+</mapper>
