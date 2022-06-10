@@ -5,6 +5,7 @@ import com.bei.forum.pojo.News;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.Map;
 
 @Service
@@ -24,6 +25,7 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public boolean send(News news) {
+        news.setCreateTime(new Date());
         return newsMapper.send(news) == 1;
     }
 }

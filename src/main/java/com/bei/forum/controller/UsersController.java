@@ -47,7 +47,12 @@ public class UsersController {
                 return Res.err().setMsg("账号创建出错");
             }
         }
-        return Res.ok().setMsg("登录成功");
+        int id = usersService.selectId(email);
+        Users user = usersService.selectById(id);
+        return Res.ok().setMsg("登录成功")
+                .data("id", id)
+                .data("name", user.getName())
+                .data("avatarLink", user.getAvatarLink());
     }
 
     @RequestMapping("/{email}/info")

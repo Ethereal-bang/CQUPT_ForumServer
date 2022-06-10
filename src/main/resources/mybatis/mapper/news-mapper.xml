@@ -27,6 +27,6 @@
     <insert id="send" parameterType="News">
         insert
         into news (sender, receiver, carrier_id, type, create_time, content)
-        VALUE (#{sender}, #{receiver}, #{carrierId}, #{type}, #{create_time}, #{content});
+        VALUE (#{sender}, #{receiver}, #{carrierId}, #{type}, #{createTime}, #{content});
     </insert>
 </mapper>
