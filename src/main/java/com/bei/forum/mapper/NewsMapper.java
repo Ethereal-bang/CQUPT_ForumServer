@@ -13,4 +13,6 @@ public interface NewsMapper {
     int send(News news);
 
     int count(int articleId, String type);
+
+    int[] oneCollected(int id);
 }

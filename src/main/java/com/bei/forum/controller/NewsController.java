@@ -3,7 +3,6 @@ package com.bei.forum.controller;
 import com.bei.forum.common.Res;
 import com.bei.forum.pojo.News;
 import com.bei.forum.service.NewsService;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

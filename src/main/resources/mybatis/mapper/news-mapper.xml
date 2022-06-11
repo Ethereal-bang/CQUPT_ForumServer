@@ -34,4 +34,7 @@
         select COUNT(_id) from news where carrier_id = #{articleId} and type = #{type};
     </select>
 
+    <select id="oneCollected" resultType="int">
+        select carrier_id from news where sender = #{id};
+    </select>
 </mapper>
