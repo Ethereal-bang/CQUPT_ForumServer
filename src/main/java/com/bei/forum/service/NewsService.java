@@ -10,4 +10,5 @@ public interface NewsService {
 
     boolean send(News news);
 
+    int count(int articleId, String type);
 }

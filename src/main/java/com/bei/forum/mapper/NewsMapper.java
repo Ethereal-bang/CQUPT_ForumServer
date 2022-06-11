@@ -11,4 +11,6 @@ public interface NewsMapper {
     Map<String, Object>[] showComment(int postId);
 
     int send(News news);
+
+    int count(int articleId, String type);
 }

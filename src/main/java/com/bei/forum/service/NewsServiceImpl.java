@@ -28,4 +28,9 @@ public class NewsServiceImpl implements NewsService {
         news.setCreateTime(new Date());
         return newsMapper.send(news) == 1;
     }
+
+    @Override
+    public int count(int articleId, String type) {
+        return newsMapper.count(articleId, type);
+    }
 }

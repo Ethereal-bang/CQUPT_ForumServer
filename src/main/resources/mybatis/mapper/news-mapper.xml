@@ -29,4 +29,9 @@
         into news (sender, receiver, carrier_id, type, create_time, content)
         VALUE (#{sender}, #{receiver}, #{carrierId}, #{type}, #{createTime}, #{content});
     </insert>
+
+    <select id="count" resultType="int">
+        select COUNT(_id) from news where carrier_id = #{articleId} and type = #{type};
+    </select>
+
 </mapper>
