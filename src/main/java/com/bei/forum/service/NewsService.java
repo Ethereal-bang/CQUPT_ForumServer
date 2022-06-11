@@ -11,4 +11,6 @@ public interface NewsService {
     boolean send(News news);
 
     int count(int articleId, String type);
+
+    Map<String, Object>[] received(int receiver);
 }

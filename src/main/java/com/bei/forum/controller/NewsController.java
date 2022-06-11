@@ -30,4 +30,9 @@ public class NewsController {
             return Res.err().setMsg("操作失败");
         }
     }
+
+    @GetMapping("/received")
+    public Res received(@RequestParam int receiver) {
+        return Res.ok().data("list", newsService.received(receiver));
+    }
 }

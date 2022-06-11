@@ -15,4 +15,7 @@ public interface NewsMapper {
     int count(int articleId, String type);
 
     int[] oneCollected(int id);
+
+    Map<String, Object>[] received(int receiver);
+
 }

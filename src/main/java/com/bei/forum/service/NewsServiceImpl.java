@@ -33,4 +33,10 @@ public class NewsServiceImpl implements NewsService {
     public int count(int articleId, String type) {
         return newsMapper.count(articleId, type);
     }
+
+    @Override
+    public Map<String, Object>[] received(int receiver) {
+        return newsMapper.received(receiver);
+    }
+
 }
