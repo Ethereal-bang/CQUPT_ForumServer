@@ -9,4 +9,7 @@ public interface PostsService {
     Posts[] getAll();
 
     Posts[] getByArea(String area);
+
+    Posts[] onePosted(String author);
+
 }

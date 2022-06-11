@@ -30,4 +30,7 @@
         select * from posts where area = #{area};
     </select>
 
+    <select id="onePosted" parameterType="String" resultMap="BaseResultMap">
+        select * from posts where author = #{author};
+    </select>
 </mapper>

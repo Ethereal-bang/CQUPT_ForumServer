@@ -40,4 +40,15 @@ public class PostsServiceImpl implements PostsService {
     public Posts[] getByArea(String area) {
         return postsMapper.getByArea(area);
     }
+
+    @Override
+    public Posts[] onePosted(String author) {
+        Posts[] posts = postsMapper.onePosted(author);
+        for (Posts p : posts) {
+            p.setLike(newsMapper.count(p.getId(), "like"));
+            p.setCollection(newsMapper.count(p.getId(), "collect"));
+            p.setComment(newsMapper.count(p.getId(), "comment"));
+        }
+        return posts;
+    }
 }
