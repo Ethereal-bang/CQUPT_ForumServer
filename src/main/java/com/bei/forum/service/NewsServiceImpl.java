@@ -70,8 +70,15 @@ public class NewsServiceImpl implements NewsService {
                 Posts posts = postsMapper.get(id)[0];
                 m.put("area", posts.getArea());
             }
+            // 请求到的消息都标记为已读
+            newsMapper.read(receiver);
         }
         return news;
+    }
+
+    @Override
+    public int noRead(int receiver) {
+        return newsMapper.noRead(receiver);
     }
 
 }

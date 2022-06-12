@@ -13,4 +13,7 @@ public interface NewsService {
     int count(int articleId, String type);
 
     Map<String, Object>[] received(int receiver);
+
+    int noRead(int receiver);
+
 }

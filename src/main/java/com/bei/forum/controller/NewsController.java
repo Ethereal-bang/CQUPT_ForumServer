@@ -35,4 +35,9 @@ public class NewsController {
     public Res received(@RequestParam int receiver) {
         return Res.ok().data("list", newsService.received(receiver));
     }
+
+    @GetMapping("/noRead")
+    public Res noRead(@RequestParam int receiver) {
+        return Res.ok().data("count", newsService.noRead(receiver));
+    }
 }

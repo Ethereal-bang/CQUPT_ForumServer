@@ -45,4 +45,12 @@
         from news, users
         where receiver = #{receiver} and users._id = news.sender;
     </select>
+
+    <update id="read" parameterType="int">
+        update news set state = 1 where receiver = #{receiver};
+    </update>
+
+    <select id="noRead" parameterType="int" resultType="int">
+        select COUNT(_id) from news where receiver = #{receiver} and state = 0;
+    </select>
 </mapper>
