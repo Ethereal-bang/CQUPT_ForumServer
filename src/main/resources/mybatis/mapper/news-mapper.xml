@@ -39,7 +39,9 @@
     </select>
 
     <select id="received" parameterType="int" resultType="java.util.Map">
-        select users.name, carrier_id, type, create_time, content
+        select
+            users.name,
+            carrier_id, type, create_time, content
         from news, users
         where receiver = #{receiver} and users._id = news.sender;
     </select>

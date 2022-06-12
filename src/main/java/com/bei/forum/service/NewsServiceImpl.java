@@ -1,7 +1,12 @@
 package com.bei.forum.service;
 
+import com.bei.forum.mapper.ArticlesMapper;
 import com.bei.forum.mapper.NewsMapper;
+import com.bei.forum.mapper.NoticesMapper;
+import com.bei.forum.mapper.PostsMapper;
 import com.bei.forum.pojo.News;
+import com.bei.forum.pojo.Notices;
+import com.bei.forum.pojo.Posts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +17,28 @@ import java.util.Map;
 public class NewsServiceImpl implements NewsService {
 
     NewsMapper newsMapper;
+    ArticlesMapper articlesMapper;
+    NoticesMapper noticesMapper;
+    PostsMapper postsMapper;
 
     @Autowired
     public void setNewsMapper(NewsMapper newsMapper) {
         this.newsMapper = newsMapper;
+    }
+
+    @Autowired
+    public void setArticlesMapper(ArticlesMapper articlesMapper) {
+        this.articlesMapper = articlesMapper;
+    }
+
+    @Autowired
+    public void setNoticesMapper(NoticesMapper noticesMapper) {
+        this.noticesMapper = noticesMapper;
+    }
+
+    @Autowired
+    public void setPostsMapper(PostsMapper postsMapper) {
+        this.postsMapper = postsMapper;
     }
 
     @Override
@@ -36,7 +59,19 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public Map<String, Object>[] received(int receiver) {
-        return newsMapper.received(receiver);
+        Map<String, Object>[] news = newsMapper.received(receiver);
+        for (Map<String, Object> m : news) {
+            int id = (Integer) m.get("carrier_id");
+            String type = articlesMapper.get(id);
+            if (type.equals("notices")) {
+                Notices notices = noticesMapper.get(id)[0];
+                m.put("area", notices.getArea());
+            } else {
+                Posts posts = postsMapper.get(id)[0];
+                m.put("area", posts.getArea());
+            }
+        }
+        return news;
     }
 
 }
