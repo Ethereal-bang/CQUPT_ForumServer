@@ -23,4 +23,6 @@ public interface NewsMapper {
     int noRead(int receiver);   // 返回未读消息数
 
     int[] mostComment();
+
+    int[] recentComment();
 }

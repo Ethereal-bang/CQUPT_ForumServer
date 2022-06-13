@@ -64,4 +64,14 @@ public class PostsServiceImpl implements PostsService {
         }
         return posts;
     }
+
+    @Override
+    public List<Posts> recentComment() {
+        int [] ids = newsMapper.recentComment();
+        List<Posts> posts = new ArrayList<>();
+        for (int id : ids) {
+            posts.add(postsMapper.get(id)[0]);
+        }
+        return posts;
+    }
 }

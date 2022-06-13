@@ -64,4 +64,12 @@
         LIMIT 10;
     </select>
 
+    <!--按create_time返回carrier_id-->
+    <select id="recentComment" resultType="int">
+        SELECT DISTINCT carrier_id
+        FROM news
+        WHERE TYPE = 'comment'
+        ORDER BY create_time DESC
+        limit 10;
+    </select>
 </mapper>

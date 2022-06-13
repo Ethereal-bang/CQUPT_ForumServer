@@ -37,5 +37,10 @@ public class PostsController {
     public Res mostComment() {
         return Res.ok().data("list", postsService.mostComment());
     }
+
+    @GetMapping("/recentComment")
+    public Res recentComment() {
+        return Res.ok().data("list", postsService.recentComment());
+    }
 }
 

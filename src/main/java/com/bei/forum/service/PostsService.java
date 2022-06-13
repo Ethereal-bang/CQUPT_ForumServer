@@ -16,4 +16,5 @@ public interface PostsService {
 
     List<Posts> mostComment();
 
+    List<Posts> recentComment();
 }
