@@ -81,4 +81,9 @@ public class NewsServiceImpl implements NewsService {
         return newsMapper.noRead(receiver);
     }
 
+    @Override
+    public Posts[] mostComment() {
+        return new Posts[0];
+    }
+
 }

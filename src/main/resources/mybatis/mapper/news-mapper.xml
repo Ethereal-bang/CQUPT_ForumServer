@@ -53,4 +53,15 @@
     <select id="noRead" parameterType="int" resultType="int">
         select COUNT(_id) from news where receiver = #{receiver} and state = 0;
     </select>
+
+    <!--按type='comment的carrier_id出现次数-->
+    <select id="mostComment" resultType="int">
+        SELECT carrier_id
+        FROM `news`
+        WHERE TYPE = 'comment'
+        GROUP BY carrier_id
+        ORDER BY COUNT(carrier_id) desc
+        LIMIT 10;
+    </select>
+
 </mapper>

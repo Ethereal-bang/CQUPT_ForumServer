@@ -13,4 +13,6 @@ public interface PostsMapper {
     Posts[] getByArea(String area);
 
     Posts[] onePosted(String author);
+
+    Posts[] mostComment();
 }

@@ -32,5 +32,10 @@ public class PostsController {
     public Res onePost(@RequestParam String author) {
         return Res.ok().data("list", postsService.onePosted(author));
     }
+
+    @GetMapping("/mostComment")
+    public Res mostComment() {
+        return Res.ok().data("list", postsService.mostComment());
+    }
 }
 

@@ -6,6 +6,9 @@ import com.bei.forum.pojo.Posts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class PostsServiceImpl implements PostsService {
 
@@ -48,6 +51,16 @@ public class PostsServiceImpl implements PostsService {
             p.setLike(newsMapper.count(p.getId(), "like"));
             p.setCollection(newsMapper.count(p.getId(), "collect"));
             p.setComment(newsMapper.count(p.getId(), "comment"));
+        }
+        return posts;
+    }
+
+    @Override
+    public List<Posts> mostComment() {
+        int [] ids = newsMapper.mostComment();
+        List<Posts> posts = new ArrayList<>();
+        for (int id : ids) {
+            posts.add(postsMapper.get(id)[0]);
         }
         return posts;
     }

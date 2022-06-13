@@ -18,7 +18,9 @@ public interface NewsMapper {
 
     Map<String, Object>[] received(int receiver);
 
-    int read(int receiver); // 全部置为已读
+    void read(int receiver); // 全部置为已读
 
     int noRead(int receiver);   // 返回未读消息数
+
+    int[] mostComment();
 }

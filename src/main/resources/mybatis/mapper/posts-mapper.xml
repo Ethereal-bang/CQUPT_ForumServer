@@ -5,32 +5,39 @@
 
 <mapper namespace="com.bei.forum.mapper.PostsMapper">
     <resultMap id="BaseResultMap" type="Posts">
-        <id column="_id" jdbcType="INTEGER" property="id" />
-        <result column="title" jdbcType="VARCHAR" property="title" />
-        <result column="author" jdbcType="VARCHAR" property="author" />
-        <result column="content" jdbcType="CHAR" property="content" />
-        <result column="area" jdbcType="VARCHAR" property="area" />
-        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-        <result column="like" jdbcType="INTEGER" property="like" />
-        <result column="visit" jdbcType="INTEGER" property="visit" />
-        <result column="collection" jdbcType="INTEGER" property="collection" />
-        <result column="comment" jdbcType="INTEGER" property="comment" />
+        <id column="_id" jdbcType="INTEGER" property="id"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="author" jdbcType="VARCHAR" property="author"/>
+        <result column="content" jdbcType="CHAR" property="content"/>
+        <result column="area" jdbcType="VARCHAR" property="area"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="like" jdbcType="INTEGER" property="like"/>
+        <result column="visit" jdbcType="INTEGER" property="visit"/>
+        <result column="collection" jdbcType="INTEGER" property="collection"/>
+        <result column="comment" jdbcType="INTEGER" property="comment"/>
     </resultMap>
 
     <select id="get" parameterType="int" resultMap="BaseResultMap">
-        select * from posts where _id = #{id};
+        select *
+        from posts
+        where _id = #{id};
     </select>
 
     <select id="getAll" resultMap="BaseResultMap">
-        select * from posts;
+        select *
+        from posts;
     </select>
 
     <select id="getByArea" parameterType="String" resultMap="BaseResultMap">
-        select * from posts where area = #{area};
+        select *
+        from posts
+        where area = #{area};
     </select>
 
     <select id="onePosted" parameterType="String" resultMap="BaseResultMap">
-        select * from posts where author = #{author};
+        select *
+        from posts
+        where author = #{author};
     </select>
 </mapper>
