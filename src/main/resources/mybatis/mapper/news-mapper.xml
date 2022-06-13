@@ -35,7 +35,7 @@
     </select>
 
     <select id="oneCollected" resultType="int">
-        select carrier_id from news where sender = #{id};
+        select distinct carrier_id from news where sender = #{id};
     </select>
 
     <select id="received" parameterType="int" resultType="java.util.Map">
