@@ -8,4 +8,6 @@ public interface RootService {
 
     Map<String, Object> data();
 
+    boolean addArea(String name, String url, String words);
+
 }
