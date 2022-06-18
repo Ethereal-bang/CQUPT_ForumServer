@@ -55,4 +55,10 @@ public class RootServiceImpl implements RootService {
     public boolean addArea(String name, String url, String words) {
         return discussAreaMapper.addArea(new DiscussArea(name, url, words)) == 1;
     }
+
+    @Override
+    public DiscussArea[] showAreas() {
+        return discussAreaMapper.showAreas();
+    }
+
 }

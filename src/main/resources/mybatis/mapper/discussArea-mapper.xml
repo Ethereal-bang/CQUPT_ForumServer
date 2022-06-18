@@ -9,4 +9,8 @@
         insert into discuss_area (name, url, words) value (#{name}, #{url}, #{words});
     </insert>
 
+    <select id="showAreas" resultType="DiscussArea">
+        select id, name, url, words from discuss_area;
+    </select>
+
 </mapper>

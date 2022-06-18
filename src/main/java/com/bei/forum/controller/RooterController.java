@@ -25,7 +25,7 @@ public class RooterController {
     }
 
     @GetMapping("/addArea") // 创建区块
-    public Res area(@RequestParam String name, @RequestParam String url, @RequestParam String words) {
+    public Res addArea(@RequestParam String name, @RequestParam String url, @RequestParam String words) {
         if (rootService.addArea(name, url, words)) {
             return Res.ok().setMsg("区块创建成功");
         } else {
@@ -33,4 +33,8 @@ public class RooterController {
         }
     }
 
+    @GetMapping("/area")
+    public Res showArea() {
+        return Res.ok().data("list", rootService.showAreas());
+    }
 }

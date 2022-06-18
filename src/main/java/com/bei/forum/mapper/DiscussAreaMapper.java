@@ -8,4 +8,6 @@ public interface DiscussAreaMapper {
 
     int addArea(DiscussArea discussArea);
 
+    DiscussArea[] showAreas();
+
 }
