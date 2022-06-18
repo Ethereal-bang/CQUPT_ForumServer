@@ -3,11 +3,9 @@ package com.bei.forum.controller;
 import com.bei.forum.common.Res;
 import com.bei.forum.pojo.DiscussArea;
 import com.bei.forum.service.RootService;
+import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/root")
@@ -45,6 +43,15 @@ public class RooterController {
             return Res.ok().setMsg("分区修改成功");
         } else {
             return Res.err().setMsg("分区修改失败");
+        }
+    }
+
+    @GetMapping("/delArea")
+    public Res delArea(@RequestParam int id) {
+        if (rootService.delArea(id)) {
+            return Res.ok().setMsg("分区删除成功");
+        } else {
+            return Res.err().setMsg("分区删除失败");
         }
     }
 

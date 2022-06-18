@@ -12,4 +12,6 @@ public interface DiscussAreaMapper {
 
     int setArea(DiscussArea discussArea);
 
+    int delArea(int id);
+
 }

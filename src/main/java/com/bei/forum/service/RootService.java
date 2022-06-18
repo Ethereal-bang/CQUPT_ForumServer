@@ -15,4 +15,6 @@ public interface RootService {
 
     boolean setArea(DiscussArea discussArea);
 
+    boolean delArea(int id);
+
 }

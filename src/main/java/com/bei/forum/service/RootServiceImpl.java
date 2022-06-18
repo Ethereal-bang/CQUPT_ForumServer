@@ -66,4 +66,9 @@ public class RootServiceImpl implements RootService {
         return discussAreaMapper.setArea(discussArea) == 1;
     }
 
+    @Override
+    public boolean delArea(int id) {
+        return discussAreaMapper.delArea(id) == 1;
+    }
+
 }
