@@ -10,4 +10,6 @@ public interface DiscussAreaMapper {
 
     DiscussArea[] showAreas();
 
+    int setArea(DiscussArea discussArea);
+
 }

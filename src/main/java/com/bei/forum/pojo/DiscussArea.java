@@ -17,4 +17,12 @@ public class DiscussArea {
         this.url = url;
         this.words = words;
     }
+
+    public DiscussArea(int id, String name, String url, String words) {
+        this.id = id;
+        this.name = name;
+        this.url = url;
+        this.words = words;
+    }
+
 }

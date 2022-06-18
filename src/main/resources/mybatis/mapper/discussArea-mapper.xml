@@ -13,4 +13,10 @@
         select id, name, url, words from discuss_area;
     </select>
 
+    <update id="setArea" parameterType="DiscussArea">
+        update discuss_area
+        set name = #{name}, url = #{url}, words = #{words}
+        where id = #{id};
+    </update>
+
 </mapper>

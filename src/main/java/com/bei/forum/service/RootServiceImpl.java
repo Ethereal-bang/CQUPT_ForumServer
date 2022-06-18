@@ -61,4 +61,9 @@ public class RootServiceImpl implements RootService {
         return discussAreaMapper.showAreas();
     }
 
+    @Override
+    public boolean setArea(DiscussArea discussArea) {
+        return discussAreaMapper.setArea(discussArea) == 1;
+    }
+
 }

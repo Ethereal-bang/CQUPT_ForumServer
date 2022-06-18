@@ -1,6 +1,7 @@
 package com.bei.forum.controller;
 
 import com.bei.forum.common.Res;
+import com.bei.forum.pojo.DiscussArea;
 import com.bei.forum.service.RootService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,4 +38,14 @@ public class RooterController {
     public Res showArea() {
         return Res.ok().data("list", rootService.showAreas());
     }
+
+    @GetMapping("/setArea")
+    public Res setArea(@RequestParam DiscussArea discussArea) {
+        if (rootService.setArea(discussArea)) {
+            return Res.ok().setMsg("分区修改成功");
+        } else {
+            return Res.err().setMsg("分区修改失败");
+        }
+    }
+
 }

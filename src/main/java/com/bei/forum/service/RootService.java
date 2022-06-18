@@ -13,4 +13,6 @@ public interface RootService {
 
     DiscussArea[] showAreas();
 
+    boolean setArea(DiscussArea discussArea);
+
 }
