@@ -16,4 +16,12 @@
         like CONCAT('%', #{keyword}, '%');
     </select>
 
+    <insert id="add" parameterType="String">
+        insert into articles (type) value (#{type});
+    </insert>
+
+    <select id="lastId" resultType="int">
+        select MAX(_id) from articles;
+    </select>
+
 </mapper>

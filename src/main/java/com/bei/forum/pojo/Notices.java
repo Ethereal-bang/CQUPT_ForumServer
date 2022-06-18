@@ -32,4 +32,11 @@ public class Notices extends Articles {
     public String getType() {
         return "notices";
     }
+
+    public Notices(String title, String content, String area) {
+        this.title = title;
+        this.content = content;
+        this.area = area;
+    }
+
 }

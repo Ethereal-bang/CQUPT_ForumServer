@@ -12,4 +12,6 @@ public interface NoticesMapper {
 
     Notices[] getByArea(String area);
 
+    int add(Notices notice);
+
 }

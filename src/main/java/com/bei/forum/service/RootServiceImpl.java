@@ -1,10 +1,8 @@
 package com.bei.forum.service;
 
-import com.bei.forum.mapper.DiscussAreaMapper;
-import com.bei.forum.mapper.NewsMapper;
-import com.bei.forum.mapper.PostsMapper;
-import com.bei.forum.mapper.UsersMapper;
+import com.bei.forum.mapper.*;
 import com.bei.forum.pojo.DiscussArea;
+import com.bei.forum.pojo.Notices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +16,8 @@ public class RootServiceImpl implements RootService {
     NewsMapper newsMapper;
     PostsMapper postsMapper;
     DiscussAreaMapper discussAreaMapper;
+    ArticlesMapper articlesMapper;
+    NoticesMapper noticesMapper;
 
     @Autowired
     public void setUsersMapper(UsersMapper usersMapper) {
@@ -37,6 +37,16 @@ public class RootServiceImpl implements RootService {
     @Autowired
     public void setDiscussAreaMapper(DiscussAreaMapper discussAreaMapper) {
         this.discussAreaMapper = discussAreaMapper;
+    }
+
+    @Autowired
+    public void setArticlesMapper(ArticlesMapper articlesMapper) {
+        this.articlesMapper = articlesMapper;
+    }
+
+    @Autowired
+    public void setNoticesMapper(NoticesMapper noticesMapper) {
+        this.noticesMapper = noticesMapper;
     }
 
     @Override
@@ -69,6 +79,18 @@ public class RootServiceImpl implements RootService {
     @Override
     public boolean delArea(int id) {
         return discussAreaMapper.delArea(id) == 1;
+    }
+
+    @Override
+    public boolean addNotice(Notices notice) {
+        // 1.更新articles表(_id,type)
+        if (articlesMapper.add("notices") == 1) {
+            // 2.获得_id
+            notice.setId(articlesMapper.lastId());
+            // 2.更新notices表
+            return noticesMapper.add(notice) == 1;
+        }
+        return false;
     }
 
 }

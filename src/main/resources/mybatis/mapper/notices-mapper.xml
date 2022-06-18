@@ -26,4 +26,9 @@
     <select id="getByArea" parameterType="String" resultMap="BaseResultMap">
         select * from notices where area = #{area};
     </select>
+
+    <insert id="add" parameterType="Notices">
+        insert into notices (_id, title, area, create_time, content)
+        value (#{id}, #{title}, #{area}, CURRENT_DATE, #{content});
+    </insert>
 </mapper>
