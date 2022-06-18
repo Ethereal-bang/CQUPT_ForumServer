@@ -9,4 +9,11 @@
         select type from articles where _id = #{id};
     </select>
 
+    <select id="search" parameterType="String" resultType="int">
+        select articles._id
+        from posts, notices, articles
+        where articles._id = posts._id or articles._id = notices._id
+        like CONCAT('%', #{keyword}, '%');
+    </select>
+
 </mapper>

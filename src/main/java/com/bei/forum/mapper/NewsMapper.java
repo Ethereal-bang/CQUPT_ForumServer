@@ -25,4 +25,6 @@ public interface NewsMapper {
     int[] mostComment();
 
     int[] recentComment();
+
+    int getCommentAmount();
 }

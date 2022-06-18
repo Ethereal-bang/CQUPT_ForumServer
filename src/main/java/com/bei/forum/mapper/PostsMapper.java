@@ -15,4 +15,6 @@ public interface PostsMapper {
     Posts[] onePosted(String author);
 
     Posts[] recentComment();
+
+    int newPostAmount();
 }

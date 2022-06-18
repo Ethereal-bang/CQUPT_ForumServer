@@ -18,4 +18,6 @@ public interface UsersMapper {
 
     Users[] select(int id);
 
+    int getAmount();
+
 }

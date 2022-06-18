@@ -39,4 +39,8 @@
             from users
             where _id = #{id}
     </select>
+
+    <select id="getAmount" resultType="int">
+        select COUNT(_id) from users;
+    </select>
 </mapper>

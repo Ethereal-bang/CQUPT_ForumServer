@@ -40,4 +40,9 @@
         from posts
         where author = #{author};
     </select>
+
+    <!--当日新增帖子-->
+    <select id="newPostAmount" resultType="int">
+        select COUNT(_id) from posts where create_time > CURRENT_DATE;
+    </select>
 </mapper>

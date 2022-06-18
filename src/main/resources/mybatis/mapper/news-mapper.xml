@@ -72,4 +72,9 @@
         ORDER BY create_time DESC
         limit 10;
     </select>
+
+    <select id="getCommentAmount" resultType="int">
+        select COUNT(_id) from news where type = 'comment';
+    </select>
+
 </mapper>
