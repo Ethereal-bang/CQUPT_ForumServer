@@ -9,7 +9,13 @@ import lombok.Setter;
 @Setter
 public class Report {
 
-    int id, reporter, reported, comment, post;
-    String type;
+    int id, reporter, comment, post;
+    String reported, type, content;
 
+    public Report(int reporter, String reported, String type, String content) {
+        this.reported = reported;
+        this.reporter = reporter;
+        this.type = type;
+        this.content = content;
+    }
 }

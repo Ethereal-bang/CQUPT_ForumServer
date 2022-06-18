@@ -6,8 +6,22 @@
 <mapper namespace="com.bei.forum.mapper.ReportMapper">
 
     <select id="showAll" resultType="Report">
-        select id, reporter, reported, type, comment, post
+        select id, reporter, reported, type, comment, post, content
         from report;
     </select>
+
+    <insert id="addToPost" parameterType="Report">
+        insert into report (reporter, reported, type, post, content)
+        value (#{reporter}, #{reported}, 'post', #{post}, #{content});
+    </insert>
+
+    <insert id="addToComment" parameterType="Report">
+        insert into report (reporter, reported, type, comment, content)
+            value (#{reporter}, #{reported}, 'comment', #{comment}, #{content});
+    </insert>
+
+    <delete id="del">
+        delete from report where id = #{id};
+    </delete>
 
 </mapper>

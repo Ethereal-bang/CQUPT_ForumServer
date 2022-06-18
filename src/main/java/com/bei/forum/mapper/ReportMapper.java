@@ -8,4 +8,10 @@ public interface ReportMapper {
 
     Report[] showAll();
 
+    int addToPost(Report report);
+
+    int addToComment(Report report);
+
+    int del(int id);
+
 }
