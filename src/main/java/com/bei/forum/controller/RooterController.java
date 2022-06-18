@@ -3,8 +3,8 @@ package com.bei.forum.controller;
 import com.bei.forum.common.Res;
 import com.bei.forum.pojo.DiscussArea;
 import com.bei.forum.pojo.Notices;
+import com.bei.forum.pojo.Users;
 import com.bei.forum.service.RootService;
-import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -63,5 +63,13 @@ public class RooterController {
         } else {
             return Res.err().setMsg("发布失败");
         }
+    }
+
+    @GetMapping("/user")
+    public Res showUsers() {
+        Users[] users = rootService.showUsers();
+        return Res.ok()
+                .data("amount", users.length)
+                .data("list", users);
     }
 }

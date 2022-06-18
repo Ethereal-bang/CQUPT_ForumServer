@@ -20,4 +20,6 @@ public interface UsersMapper {
 
     int getAmount();
 
+    Users[] showAll();
+
 }

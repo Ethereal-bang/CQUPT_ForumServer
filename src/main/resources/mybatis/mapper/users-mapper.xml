@@ -43,4 +43,9 @@
     <select id="getAmount" resultType="int">
         select COUNT(_id) from users;
     </select>
+
+    <select id="showAll" resultMap="BaseResultMap">
+        select _id, email, name from users;
+    </select>
+
 </mapper>

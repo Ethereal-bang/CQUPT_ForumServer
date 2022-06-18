@@ -2,6 +2,7 @@ package com.bei.forum.service;
 
 import com.bei.forum.pojo.DiscussArea;
 import com.bei.forum.pojo.Notices;
+import com.bei.forum.pojo.Users;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
@@ -19,5 +20,7 @@ public interface RootService {
     boolean delArea(int id);
 
     boolean addNotice(Notices notice);
+
+    Users[] showUsers();
 
 }

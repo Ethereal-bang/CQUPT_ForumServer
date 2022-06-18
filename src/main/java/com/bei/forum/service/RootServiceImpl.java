@@ -3,6 +3,7 @@ package com.bei.forum.service;
 import com.bei.forum.mapper.*;
 import com.bei.forum.pojo.DiscussArea;
 import com.bei.forum.pojo.Notices;
+import com.bei.forum.pojo.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -91,6 +92,11 @@ public class RootServiceImpl implements RootService {
             return noticesMapper.add(notice) == 1;
         }
         return false;
+    }
+
+    @Override
+    public Users[] showUsers() {
+        return usersMapper.showAll();
     }
 
 }
