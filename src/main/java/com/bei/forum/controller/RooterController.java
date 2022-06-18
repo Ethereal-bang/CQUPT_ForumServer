@@ -72,4 +72,10 @@ public class RooterController {
                 .data("amount", users.length)
                 .data("list", users);
     }
+
+    @GetMapping("/report")
+    public Res showReports() {
+        return Res.ok().data("list", rootService.showReports());
+    }
+
 }

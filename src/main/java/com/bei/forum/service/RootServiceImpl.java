@@ -3,6 +3,7 @@ package com.bei.forum.service;
 import com.bei.forum.mapper.*;
 import com.bei.forum.pojo.DiscussArea;
 import com.bei.forum.pojo.Notices;
+import com.bei.forum.pojo.Report;
 import com.bei.forum.pojo.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ public class RootServiceImpl implements RootService {
     DiscussAreaMapper discussAreaMapper;
     ArticlesMapper articlesMapper;
     NoticesMapper noticesMapper;
+    ReportMapper reportMapper;
 
     @Autowired
     public void setUsersMapper(UsersMapper usersMapper) {
@@ -48,6 +50,11 @@ public class RootServiceImpl implements RootService {
     @Autowired
     public void setNoticesMapper(NoticesMapper noticesMapper) {
         this.noticesMapper = noticesMapper;
+    }
+
+    @Autowired
+    public void setReportMapper(ReportMapper reportMapper) {
+        this.reportMapper = reportMapper;
     }
 
     @Override
@@ -97,6 +104,11 @@ public class RootServiceImpl implements RootService {
     @Override
     public Users[] showUsers() {
         return usersMapper.showAll();
+    }
+
+    @Override
+    public Report[] showReports() {
+        return reportMapper.showAll();
     }
 
 }
