@@ -60,8 +60,9 @@ public class PostsServiceImpl implements PostsService {
         int [] ids = newsMapper.mostComment();
         List<Posts> posts = new ArrayList<>();
         for (int id : ids) {
-            posts.add(postsMapper.get(id)[0]);
-        }
+            if (postsMapper.get(id) != null)
+               posts.add(postsMapper.get(id)[0]);
+            }
         return posts;
     }
 
@@ -70,7 +71,8 @@ public class PostsServiceImpl implements PostsService {
         int [] ids = newsMapper.recentComment();
         List<Posts> posts = new ArrayList<>();
         for (int id : ids) {
-            posts.add(postsMapper.get(id)[0]);
+            if (postsMapper.get(id) != null)
+                posts.add(postsMapper.get(id)[0]);
         }
         return posts;
     }

@@ -58,6 +58,7 @@ public class RooterController {
 
     @PostMapping("/addNotice")
     public Res addNotice(@RequestBody Notices notice) {
+        System.out.println(notice.getArea());
         if (rootService.addNotice(notice)) {
             return Res.ok().setMsg("发布成功");
         } else {

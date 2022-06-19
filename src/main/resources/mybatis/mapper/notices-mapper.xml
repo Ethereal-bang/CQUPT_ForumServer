@@ -31,4 +31,6 @@
         insert into notices (_id, title, area, create_time, content)
         value (#{id}, #{title}, #{area}, CURRENT_DATE, #{content});
     </insert>
+
+
 </mapper>
